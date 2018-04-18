@@ -1,5 +1,5 @@
 class Pessoa:  # criar seus types personalizados
-    def __init__(self, nome = None, idade = 35):  # atributo do objeto
+    def __init__(self, nome = None, idade = 35):  # atributos de dados
         self.idade = idade
         self.nome = nome
 
@@ -18,4 +18,7 @@ if __name__ == '__main__':
 
 
 ##Obs.: método nada mais é que uma função que pertence a uma classe
-# portanto, sem estar conectada a um objeto
+# portanto, sempre está conectada a um objeto
+
+
+
