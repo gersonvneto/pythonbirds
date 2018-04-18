@@ -1,4 +1,6 @@
 class Pessoa:  # criar seus types personalizados
+    olhos = 2   # atributo default ou de classe
+
     def __init__(self, *filhos, nome = None, idade = 35):  # atributos de dados
         self.idade = idade
         self.nome = nome
@@ -21,7 +23,15 @@ if __name__ == '__main__':
     print(luciano.sobrenome)
     print(luciano.__dict__)
     print(renzo.__dict__)  #mostra os atributos (criados anteriormente e on the fly)
+    Pessoa.olhos = 3
     del luciano.filhos  # remove atributos
+    luciano.olhos = 1
+    del luciano.olhos
+    print(Pessoa.olhos)  # faz sentido porque é um default atributo de classe
+    print(luciano.olhos)
+    print(renzo.olhos)
+    print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))  # sao iguais
+
 
 ##Obs.: método nada mais é que uma função que pertence a uma classe
 # portanto, sempre está conectada a um objeto
