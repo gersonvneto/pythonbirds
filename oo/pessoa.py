@@ -17,9 +17,15 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print(filho.nome)
+    luciano.sobrenome = 'Ramalho'
+    print(luciano.sobrenome)
+    print(luciano.__dict__)
+    print(renzo.__dict__)  #mostra os atributos (criados anteriormente e on the fly)
+    del luciano.filhos  # remove atributos
 
 ##Obs.: método nada mais é que uma função que pertence a uma classe
 # portanto, sempre está conectada a um objeto
+##Obs2.: podemos criar atributos on the fly para aquele objeto específico(não é boa pratica)
 
 
 
