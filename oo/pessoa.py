@@ -9,10 +9,21 @@ class Pessoa:  # criar seus types personalizados
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    @staticmethod
+    def metodo_estatico():
+        return 42     #fazer algum cálculo que independa da classe e objeto se nao for no
+                      # metodo estatico
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):  # usado para acessar dados da propria classe
+        return f'{cls} - olhos {cls.olhos}'
+
+
+
 if __name__ == '__main__':
     renzo = Pessoa(nome='Renzo')
     luciano = Pessoa(renzo, nome = 'Luciano')
-    print(Pessoa.cumprimentar(luciano))
+    print(Pessoa.cumprimentar(luciano))   # obrigado a passar o objeto
     print(id(luciano))
     print(luciano.cumprimentar()) # executando passando o próprio obj
     print(luciano.nome)
@@ -31,6 +42,14 @@ if __name__ == '__main__':
     print(luciano.olhos)
     print(renzo.olhos)
     print(id(Pessoa.olhos), id(luciano.olhos), id(renzo.olhos))  # sao iguais
+    print(Pessoa.metodo_estatico(), luciano.metodo_estatico()) # sem o obj dentro(1 arg pq e e estat) ou atraves do obj
+                                                               # se o atributo nao for encontrado no obj,
+                                                               # o python procura na classe(2 arg)
+    print(Pessoa.nome_e_atributos_de_classe(), luciano.nome_e_atributos_de_classe())
+    # pode ser executado pela classe ou pelo objeto
+
+
+
 
 
 ##Obs.: método nada mais é que uma função que pertence a uma classe
