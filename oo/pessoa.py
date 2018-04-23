@@ -18,10 +18,12 @@ class Pessoa:  # criar seus types personalizados
     def nome_e_atributos_de_classe(cls):  # usado para acessar dados da propria classe
         return f'{cls} - olhos {cls.olhos}'
 
+class Homem(Pessoa):
+    pass
 
 
 if __name__ == '__main__':
-    renzo = Pessoa(nome='Renzo')
+    renzo = Homem(nome='Renzo')  # podemos mudar para homem e continuamos a obter o mesmo result, pq homem herdou de pessoa
     luciano = Pessoa(renzo, nome = 'Luciano')
     print(Pessoa.cumprimentar(luciano))   # obrigado a passar o objeto
     print(id(luciano))
@@ -48,7 +50,11 @@ if __name__ == '__main__':
     print(Pessoa.nome_e_atributos_de_classe(), luciano.nome_e_atributos_de_classe())
     # pode ser executado pela classe ou pelo objeto
 
-
+    pessoa = Pessoa('Anonimo')
+    print(isinstance(pessoa, Pessoa))
+    print(isinstance(pessoa, Homem))
+    print(isinstance(renzo, Homem))
+    print(isinstance(renzo, Pessoa))
 
 
 
