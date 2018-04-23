@@ -21,9 +21,12 @@ class Pessoa:  # criar seus types personalizados
 class Homem(Pessoa):
     pass
 
+class Mutante(Pessoa):
+    olhos = 3
+    #sobrescrita de atributo de dados
 
 if __name__ == '__main__':
-    renzo = Homem(nome='Renzo')  # podemos mudar para homem e continuamos a obter o mesmo result, pq homem herdou de pessoa
+    renzo = Mutante(nome='Renzo')  # podemos mudar para homem e continuamos a obter o mesmo result, pq homem herdou de pessoa
     luciano = Pessoa(renzo, nome = 'Luciano')
     print(Pessoa.cumprimentar(luciano))   # obrigado a passar o objeto
     print(id(luciano))
@@ -36,7 +39,6 @@ if __name__ == '__main__':
     print(luciano.sobrenome)
     print(luciano.__dict__)
     print(renzo.__dict__)  #mostra os atributos (criados anteriormente e on the fly)
-    Pessoa.olhos = 3
     del luciano.filhos  # remove atributos
     luciano.olhos = 1
     del luciano.olhos
@@ -55,6 +57,9 @@ if __name__ == '__main__':
     print(isinstance(pessoa, Homem))
     print(isinstance(renzo, Homem))
     print(isinstance(renzo, Pessoa))
+    print(renzo.olhos)
+# quando uma classe nao herda de nenhuma outra, ela herda implicitamente da classe raiz object
+# e a busca vai pesquisar se há o atributo no object se nao encontrar em nenhuma
 
 
 
