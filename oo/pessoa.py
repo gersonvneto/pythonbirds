@@ -7,7 +7,7 @@ class Pessoa:  # criar seus types personalizados
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -19,15 +19,17 @@ class Pessoa:  # criar seus types personalizados
         return f'{cls} - olhos {cls.olhos}'
 
 class Homem(Pessoa):
-    pass
-
+    def cumprimentar(self):
+        cumprimentar_da_classe = super().cumprimentar()
+        return f'{cumprimentar_da_classe}. Aperto de mão'
+# super() vai chamar os elementos da classe pai
 class Mutante(Pessoa):
     olhos = 3
     #sobrescrita de atributo de dados
 
 if __name__ == '__main__':
     renzo = Mutante(nome='Renzo')  # podemos mudar para homem e continuamos a obter o mesmo result, pq homem herdou de pessoa
-    luciano = Pessoa(renzo, nome = 'Luciano')
+    luciano = Homem(renzo, nome = 'Luciano')
     print(Pessoa.cumprimentar(luciano))   # obrigado a passar o objeto
     print(id(luciano))
     print(luciano.cumprimentar()) # executando passando o próprio obj
@@ -60,7 +62,8 @@ if __name__ == '__main__':
     print(renzo.olhos)
 # quando uma classe nao herda de nenhuma outra, ela herda implicitamente da classe raiz object
 # e a busca vai pesquisar se há o atributo no object se nao encontrar em nenhuma
-
+    print(luciano.cumprimentar())
+    print(renzo.cumprimentar())
 
 
 ##Obs.: método nada mais é que uma função que pertence a uma classe
